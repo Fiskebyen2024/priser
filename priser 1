@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Østers Beregner</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        input[type="number"] {
+            width: 80px;
+        }
+        .total {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Østers Beregner</h1>
+    <table id="calculatorTable">
+        <thead>
+            <tr>
+                <th>Vare</th>
+                <th>Pris (DKK)</th>
+                <th>Mængde</th>
+                <th>Total (DKK)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>Gillardeau Speciales #3</td><td>30</td><td><input type="number" min="0" data-price="30" onchange="updateTotal(this)"></td><td class="item-total">0</td></tr>
+            <tr><td>Gillardeau Speciales #4</td><td>25</td><td><input type="number" min="0" data-price="25" onchange="updateTotal(this)"></td><td class="item-total">0</td></tr>
+            <tr><td>Gillardeau Josephine #3</td><td>25</td><td><input type="number" min="0" data-price="25" onchange="updateTotal(this)"></td><td class="item-total">0</td></tr>
+            <tr><td>KYS Super Speciale - L'etoile</td><td>25</td><td><input type="number" min="0" data-price="25" onchange="updateTotal(this)"></td><td class="item-total">0</td></tr>
+            <tr><td>Belon. Flade østers fra Le Gall</td><td>30</td><td><input type="number" min="0" data-price="30" onchange="updateTotal(this)"></td><td class="item-total">0</td></tr>
+            <tr><td>Små Fustager</td><td>0</td><td><input type="number" min="0" data-price="0" onchange="updateTotal(this)"></td><td class="item-total">0</td></tr>
+            <tr><td>Fine Poésie #3 - 12 stk m. kniv</td><td>250</td><td><input type="number" min="0" data-price="250" onchange="updateTotal(this)"></td><td class="item-total">0</td></tr>
+            <tr><td>La Facile #3 -12 stk m. kniv</td><td>250</td><td><input type="number" min="0" data-price="250" onchange="updateTotal(this)"></td><td class="item-total">0</td></tr>
+            <tr><td>Baby KYS #5 12 stk m kniv</td><td>250</td><td><input type="number" min="0" data-price="250" onchange="updateTotal(this)"></td><td class="item-total">0</td></tr>
+            <tr><td>Le Gall Premium #3 - 12 stk</td><td>250</td><td><input type="number" min="0" data-price="250" onchange="updateTotal(this)"></td><td class="item-total">0</td></tr>
+            <tr><td>Gillardeau Speciales #4 - 12 stk</td><td>250</td><td><input type="number" min="0" data-price="250" onchange="updateTotal(this)"></td><td class="item-total">0</td></tr>
+            <tr><td>Roumegous Fine de Claire -Verte #3 - 12stk</td><td>250</td><td><input type="number" min="0" data-price="250" onchange="updateTotal(this)"></td><td class="item-total">0</td></tr>
+            <tr><td>Roumegous Speciale #5 - 12 stk m. kniv</td><td>250</td><td><input type="number" min="0" data-price="250" onchange="updateTotal(this)"></td><td class="item-total">0</td></tr>
+            <tr><td>Coffret KYS - Smagekasse - 18 stk - 4 slags</td><td>300</td><td><input type="number" min="0" data-price="300" onchange="updateTotal(this)"></td><td class="item-total">0</td></tr>
+            <tr><td>Danske Gigas fra Rømø 8stk</td><td>250</td><td><input type="number" min="0" data-price="250" onchange="updateTotal(this)"></td><td class="item-total">0</td></tr>
+            <tr><td>Canadisk hummer ca 600g</td><td>250</td><td><input type="number" min="0" data-price="250" onchange="updateTotal(this)"></td><td class="item-total">0</td></tr>
+            <tr><td>Dansk hummer forskellige størrelser - pris pr kg</td><td>750</td><td><input type="number" min="0" data-price="750" onchange="updateTotal(this)"></td><td class="item-total">0</td></tr>
+            <tr><td>Halv rå hummer i vacuum - Frost - Nem at gå til.</td><td>175</td><td><input type="number" min="0" data-price="175" onchange="updateTotal(this)"></td><td class="item-total">0</td></tr>
+            <tr><td>Jomfruhummer 16-20 stk/kg</td><td>250</td><td><input type="number" min="0" data-price="250" onchange="updateTotal(this)"></td><td class="item-total">0</td></tr>
+            <tr><td>Jomfruhummer 8-12 stk/kg</td><td>400</td><td><input type="number" min="0" data-price="400" onchange="updateTotal(this)"></td><td class="item-total">0</td></tr>
+            <tr><td>10-armet Blæksprutte</td><td>175</td><td><input type="number" min="0" data-price="175" onchange="updateTotal(this)"></td><td class="item-total">0</td></tr>
+            <tr><td>Kongekrabbeben</td><td>1250</td><td><input type="number" min="0" data-price="1250" onchange="updateTotal(this)"></td><td class="item-total">0</td></tr>
+            <tr><td>Taskekrabbeklør strl 1</td><td>200</td><td><input type="number" min="0" data-price="200" onchange="updateTotal(this)"></td><td class="item-total">0</td></tr>
+            <tr><td>Kammusling i halv skal</td><td>50</td><td><input type="number" min="0" data-price="50" onchange="updateTotal(this)"></td><td class="item-total">0</td></tr>
+            <tr><td>Arktisk kammusling (Bay Scallop). 500g</td><td>250</td><td><input type="number" min="0" data-price="250" onchange="updateTotal(this)"></td><td class="item-total">0</td></tr>
+            <tr><td>Blåmusling, Line</td><td>50</td><td><input type="number" min="0" data-price="50" onchange="updateTotal(this)"></td><td class="item-total">0</td></tr>
+            <tr><td>Rejer fra Madagaskar, rå, ØKO</td><td>500</td><td><input type="number" min="0" data-price="500" onchange="updateTotal(this)"></td><td class="item-total">0</td></tr>
+            <tr><td>Rejer fra Madagaskar, rå og pillede, ØKO, 350g</td><td>250</td><td><input type="number" min="0" data-price="250" onchange="updateTotal(this)"></td><td class="item-total">0</td></tr>
+        </tbody>
+    </table>
+    <div>
+        <strong>Grand Total: </strong><span id="grandTotal">0</span> DKK
+    </div>
+
+    <script>
+        function updateTotal(input) {
+            const price = parseFloat(input.dataset.price);
+            const quantity = parseFloat(input.value) || 0;
+            const totalCell = input.parentElement.nextElementSibling;
+
+            const itemTotal = price * quantity;
+            totalCell.textContent = itemTotal.toFixed(2);
+
+            updateGrandTotal();
+        }
+
+        function updateGrandTotal() {
+            const totals = document.querySelectorAll(".item-total");
+            let grandTotal = 0;
+
+            totals.forEach(cell => {
+                grandTotal += parseFloat(cell.textContent);
+            });
+
+            document.getElementById("grandTotal").textContent = grandTotal.toFixed(2);
+        }
+    </script>
+</body>
+</html>
